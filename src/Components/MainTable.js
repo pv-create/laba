@@ -20,11 +20,20 @@ const MainTable = (props) => {
             title: 'phoneNummber',
             dataIndex: 'phoneNummber',
         },
+        {
+            delete: 'Delete',
+            render: (text) => <Button onClick={()=>{props.deletePerson(text.id)}} type="primary" danger>Delete</Button>
+        },
+        {
+            delete: 'Update',
+            render: (text) => <Button onClick={()=>console.log(text.id)} type="primary" >Update</Button>
+        }
     ];
     return (
         <div>
             <Table columns={columns} dataSource={props.persons}/>
             <Button type="primary" onClick={()=>{props.openAddModal()}}>Добавить</Button>
+            <Button onClick={()=>console.log(props.persons)}>test</Button>
             <AddModal onClose = {props.closeAddModal} open = {props.addModalOpen} addPerson = {props.addPerson}/>
         </div>
     );

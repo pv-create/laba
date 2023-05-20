@@ -9,6 +9,11 @@ const App = () => {
         setAddModalOpen(true)
     }
 
+    const deletePerson = (id) =>{
+        var buff = persons.filter(x=>x.id!==id)
+        setPersons(buff)
+    }
+
     const closeAddModal = () =>{
         setAddModalOpen(false)
     }
@@ -21,7 +26,7 @@ const App = () => {
         <div>
             <h1>Записная книжка</h1>
           <MainTable persons={persons} addPerson={addperson} closeAddModal = {closeAddModal} openAddModal={openAddModal}
-          addModalOpen={addModalOpen}/>
+          addModalOpen={addModalOpen} deletePerson={deletePerson}/>
         </div>
     );
 };
