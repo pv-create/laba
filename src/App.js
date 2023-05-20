@@ -19,6 +19,7 @@ const App = () => {
     }
     return (
         <div>
+            <h1>Записная книжка</h1>
           <MainTable persons={persons} addPerson={addperson} closeAddModal = {closeAddModal} openAddModal={openAddModal}
           addModalOpen={addModalOpen}/>
         </div>
