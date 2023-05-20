@@ -20,7 +20,6 @@ const AddModal = (props) => {
                 Возраст:<Input value={newPerson.Age} onChange={ (value)=>{setNewPerson({...newPerson, Age: value.target.value})}}/>
                 Адресс:<Input value={newPerson.Adress} onChange={ (value)=>{setNewPerson({...newPerson, Address: value.target.value})}}/>
                 Мобильный телефон:<Input value={newPerson.phoneNummber} onChange={ (value)=>{setNewPerson({...newPerson, phoneNummber: value.target.value})}}/>
-                <Button onClick={()=>console.log(newPerson)}>test</Button>
             </Modal>
         </div>
     );
