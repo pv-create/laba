@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import MainTable from "./Components/MainTable";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [persons, setPersons] =useState([])
+    const [addModalOpen, setAddModalOpen] = useState(false)
+
+    const openAddModal = () =>{
+        setAddModalOpen(true)
+    }
+
+    const closeAddModal = () =>{
+        setAddModalOpen(false)
+    }
+
+    const addperson = (person) =>{
+        console.log(person)
+        setPersons(oldArray => [...oldArray, person]);
+    }
+    return (
+        <div>
+          <MainTable persons={persons} addPerson={addperson} closeAddModal = {closeAddModal} openAddModal={openAddModal}
+          addModalOpen={addModalOpen}/>
+        </div>
+    );
+};
 
 export default App;
