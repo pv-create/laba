@@ -18,6 +18,10 @@ const App = () => {
         setAddModalOpen(false)
     }
 
+    const getPerson = (id) => {
+        return persons.find(x=>x.id==id)
+    }
+
     const addperson = (person) =>{
         console.log(person)
         setPersons(oldArray => [...oldArray, person]);
@@ -26,7 +30,8 @@ const App = () => {
         <div>
             <h1>Записная книжка</h1>
           <MainTable persons={persons} addPerson={addperson} closeAddModal = {closeAddModal} openAddModal={openAddModal}
-          addModalOpen={addModalOpen} deletePerson={deletePerson}/>
+          addModalOpen={addModalOpen} deletePerson={deletePerson}
+          getPerson={getPerson}/>
         </div>
     );
 };

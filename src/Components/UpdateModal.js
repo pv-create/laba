@@ -1,12 +1,8 @@
-import React, { useState} from 'react';
-import { v4 as uuid } from 'uuid';
-import {Button, Input, Modal} from "antd";
+import React from 'react';
+import {useState} from "@types/react";
+import {Input, Modal} from "antd";
 
-const AddModal = (props) => {
-
-
-
-
+const UpdateModal = (props) => {
     const [newPerson, setNewPerson]=useState({
         Name:'',
         Age:0,
@@ -14,13 +10,6 @@ const AddModal = (props) => {
         phoneNummber:'',
         id:''
     })
-    const save = () =>{
-        console.log(uuid())
-        setNewPerson({...newPerson, id: uuid()})
-        props.addPerson(newPerson);
-        // setNewPerson({...newPerson, Name: '', Age: 0, Address: '', phoneNummber: ''})
-        props.onClose()
-    }
     return (
         <div>
             <Modal onOk={()=>{ save()}}  title="Добавление" open={props.open} onCancel={props.onClose}>
@@ -33,4 +22,4 @@ const AddModal = (props) => {
     );
 };
 
-export default AddModal;
+export default UpdateModal;

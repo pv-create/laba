@@ -3,6 +3,7 @@ import {Button, Table} from "antd";
 import AddModal from "./AddModal";
 
 const MainTable = (props) => {
+
     const columns = [
         {
             title: 'Name',
@@ -26,14 +27,13 @@ const MainTable = (props) => {
         },
         {
             delete: 'Update',
-            render: (text) => <Button onClick={()=>console.log(text.id)} type="primary" >Update</Button>
+            render: (text) => <Button onClick={()=>{props.deletePerson(text.id); props.openAddModal()}} type="primary" >Update</Button>
         }
     ];
     return (
         <div>
             <Table columns={columns} dataSource={props.persons}/>
             <Button type="primary" onClick={()=>{props.openAddModal()}}>Добавить</Button>
-            <Button onClick={()=>console.log(props.persons)}>test</Button>
             <AddModal onClose = {props.closeAddModal} open = {props.addModalOpen} addPerson = {props.addPerson}/>
         </div>
     );
